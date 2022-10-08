@@ -24,3 +24,10 @@ elif cat /proc/version | grep -Eqi "centos|red hat|redhat"; then
 else
     echo -e "${red}未检测到系统版本${plain}\n" && exit 1
 fi
+if [[ "${release}" == "centos" ]]; then
+yum -y install gcc automake autoconf libtool make
+yum -y install pam-devel openldap-devel cyrus-sasl-devel
+ yum install pam-devel openldap-devel openssl-devel
+
+else 
+    echo -e "${red}请使用centos安装${plain}\n" && exit 1
